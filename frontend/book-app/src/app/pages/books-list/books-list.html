@@ -1,0 +1,46 @@
+<div class="container py-5">
+
+  <div class="d-flex justify-content-between align-items-center mb-5">
+    <h2 class="mb-0">Mina böcker</h2>
+    <button class="btn btn-primary" (click)="goToCreate()">
+      + Lägg till bok
+    </button>
+  </div>
+
+  <div class="row g-4">
+
+    <div class="col-md-6 col-lg-4" *ngFor="let book of books">
+      <div class="card card-uniform h-100 d-flex flex-column">
+
+        <div class="mb-3">
+
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <h5 class="mb-0 text-truncate-single">{{ book.title }}</h5>
+
+            <span class="book-date text-muted">
+              {{ book.publishedDate | date:'yyyy-MM-dd' }}
+            </span>
+          </div>
+
+          <p class="text-muted mb-0">{{ book.author }}</p>
+
+        </div>
+
+        <div class="mt-auto d-flex justify-content-end gap-2">
+          <button class="btn btn-sm btn-outline-secondary"
+                  (click)="goToEdit(book.id)">
+            Redigera
+          </button>
+
+          <button class="btn btn-sm btn-outline-danger"
+                  (click)="deleteBook(book.id)">
+            Radera
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

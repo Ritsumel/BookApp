@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-lg py-3">
+  <div class="container">
+
+    <!-- Brand -->
+    <a class="navbar-brand fw-semibold" routerLink="/books">
+      <i class="fa-solid fa-book"></i> Bookmate
+    </a>
+
+    <!-- MOBILE: Toggle + Hamburger -->
+    <div class="d-flex align-items-center gap-3 d-lg-none">
+
+      <!-- MOBILE: Theme toggle -->
+      <button class="theme-toggle"
+              (click)="toggleTheme()"
+              aria-label="Toggle theme">
+        <i *ngIf="theme === 'light'" class="fa-solid fa-moon"></i>
+        <i *ngIf="theme === 'dark'" class="fa-solid fa-sun"></i>
+      </button>
+
+      <!-- Hamburger -->
+      <button class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarContent"
+              aria-controls="navbarContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+    </div>
+
+    <!-- Collapsible Menu -->
+    <div #navbarCollapse
+         class="collapse navbar-collapse justify-content-end mobile-menu"
+         id="navbarContent">
+
+      <ul class="navbar-nav align-items-lg-center gap-3">
+
+        <!-- DESKTOP: Theme toggle -->
+        <li class="nav-item d-none d-lg-block">
+          <button class="theme-toggle"
+                  (click)="toggleTheme()"
+                  aria-label="Toggle theme">
+            <i *ngIf="theme === 'light'" class="fa-solid fa-moon"></i>
+            <i *ngIf="theme === 'dark'" class="fa-solid fa-sun"></i>
+          </button>
+        </li>
+
+        <!-- Logged In -->
+        <ng-container *ngIf="isLoggedIn(); else loggedOut">
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/books">Böcker</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/quotes">Citat</a>
+          </li>
+
+          <li class="nav-item">
+            <button class="btn btn-sm btn-outline-danger"
+                    (click)="logout()">
+              Logga ut
+            </button>
+          </li>
+
+        </ng-container>
+
+        <!-- Logged Out -->
+        <ng-template #loggedOut>
+
+          <li class="nav-item">
+            <button class="btn btn-sm btn-primary"
+                    routerLink="/login">
+              Logga in
+            </button>
+          </li>
+
+          <li class="nav-item">
+            <button class="btn btn-sm btn-outline-secondary"
+                    routerLink="/register">
+              Registrera
+            </button>
+          </li>
+
+        </ng-template>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

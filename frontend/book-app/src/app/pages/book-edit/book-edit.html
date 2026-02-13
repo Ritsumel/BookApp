@@ -1,0 +1,77 @@
+<div class="form-wrapper">
+
+  <div class="form-card">
+
+    <h2 class="mb-4 text-center">Redigera bok</h2>
+
+    <form #bookForm="ngForm" (ngSubmit)="saveEdit()" novalidate>
+
+      <div class="mb-3">
+        <label class="form-label">Titel</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="editBook.title"
+          name="title"
+          #title="ngModel"
+          required
+        />
+        <div class="error-text"
+            *ngIf="title.invalid && (title.touched || bookForm.submitted)">
+          Du måste ange titel
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Författare</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="editBook.author"
+          name="author"
+          #author="ngModel"
+          required
+        />
+        <div class="error-text"
+            *ngIf="author.invalid && (author.touched || bookForm.submitted)">
+          Du måste ange författare
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label">Publiceringsdatum</label>
+        <input
+          type="date"
+          class="form-control"
+          [(ngModel)]="editBook.publishedDate"
+          name="publishedDate"
+          max="9999-12-31"
+          #date="ngModel"
+          required
+        />
+        <div class="error-text"
+            *ngIf="date.invalid && (date.touched || bookForm.submitted)">
+          Du måste ange publiceringsdatum
+        </div>
+      </div>
+
+      <div class="buttons d-flex justify-content-between">
+        <button
+          type="button"
+          class="btn btn-outline-secondary"
+          (click)="cancel()">
+          Avbryt
+        </button>
+
+        <button
+          type="submit"
+          class="btn btn-primary">
+          Spara ändringar
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

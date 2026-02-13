@@ -1,0 +1,80 @@
+<div class="form-wrapper">
+
+  <div class="form-card">
+
+    <h2 class="mb-4 text-center">Lägg till ny bok</h2>
+
+    <form #bookForm="ngForm" (ngSubmit)="addBook()" novalidate>
+
+      <div class="mb-3">
+        <label class="form-label">Titel</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="newBook.title"
+          name="title"
+          #title="ngModel"
+          required
+        />
+        <div class="error-text" *ngIf="title.invalid && (title.touched || bookForm.submitted)">
+          Du måste ange titel
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Författare</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="newBook.author"
+          name="author"
+          #author="ngModel"
+          required
+        />
+        <div class="error-text" *ngIf="author.invalid && (author.touched || bookForm.submitted)">
+          Du måste ange författare
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label">Publiceringsdatum</label>
+        <input
+          type="date"
+          class="form-control"
+          [(ngModel)]="newBook.publishedDate"
+          name="publishedDate"
+          max="9999-12-31"
+          #date="ngModel"
+          required
+        />
+        <div class="error-text" *ngIf="date.invalid && (date.touched || bookForm.submitted)">
+          Du måste ange publiceringsdatum
+        </div>
+      </div>
+
+      <div class="buttons d-flex justify-content-between">
+        <button type="button"
+                class="btn btn-outline-secondary"
+                (click)="cancel()">
+          Avbryt
+        </button>
+
+        <button type="submit"
+                class="btn btn-primary">
+          Spara
+        </button>
+      </div>
+
+    </form>
+
+    <p class="success-text mt-3 text-center" *ngIf="message">
+      {{ message }}
+    </p>
+
+    <p class="error-text mt-3 text-center" *ngIf="error">
+      {{ error }}
+    </p>
+
+  </div>
+
+</div>

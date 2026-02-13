@@ -1,0 +1,60 @@
+<div class="form-wrapper">
+
+  <div class="form-card">
+
+    <h2 class="mb-4 text-center">Lägg till nytt citat</h2>
+
+    <form #quoteForm="ngForm" (ngSubmit)="addQuote()" novalidate>
+
+      <div class="mb-3">
+        <label class="form-label">Citat</label>
+        <textarea
+          class="form-control"
+          rows="4"
+          [(ngModel)]="newQuote.content"
+          name="content"
+          #content="ngModel"
+          required>
+        </textarea>
+        <div class="error-text"
+            *ngIf="content.invalid && (content.touched || quoteForm.submitted)">
+          Du måste ange ett citat
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label">Författare</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="newQuote.author"
+          name="author"
+          #author="ngModel"
+          required
+        />
+        <div class="error-text"
+            *ngIf="author.invalid && (author.touched || quoteForm.submitted)">
+          Du måste ange författare
+        </div>
+      </div>
+
+      <div class="buttons d-flex justify-content-between">
+        <button
+          type="button"
+          class="btn btn-outline-secondary"
+          (click)="cancel()">
+          Avbryt
+        </button>
+
+        <button
+          type="submit"
+          class="btn btn-primary">
+          Spara
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

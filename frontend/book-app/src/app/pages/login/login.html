@@ -1,0 +1,48 @@
+<div class="auth-wrapper">
+
+  <div class="auth-card">
+
+    <h2 class="mb-4 text-center">Logga in</h2>
+
+    <form (ngSubmit)="onLogin()" novalidate>
+
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Användarnamn"
+          [(ngModel)]="username"
+          name="username"
+          required
+        />
+      </div>
+
+      <div class="mb-4">
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Lösenord"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 mb-3">
+        Logga in
+      </button>
+
+      <p class="text-center mb-0 small">
+        Har du inget konto?
+        <a routerLink="/register">Registrera dig</a>
+      </p>
+
+    </form>
+
+    <p class="error-text mt-3 text-center" *ngIf="error">
+      {{ error }}
+    </p>
+
+  </div>
+
+</div>

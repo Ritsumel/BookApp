@@ -1,0 +1,46 @@
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  align-items: flex-start; 
+  padding-top: 15rem;
+
+  @media (max-width: 992px) {
+    padding-top: 8rem;
+  }
+
+  @media (max-width: 768px) {
+    padding-top: 3rem;
+  }
+}
+
+.auth-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  transition: background-color 0.3s ease;
+
+  input::placeholder {
+    font-size: 1.1rem;
+    color: rgba(var(--text-color-rgb), 0.7);
+  }
+
+  p { font-size: 1rem; }
+}
+
+.form-control {
+  border-radius: 10px;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--border-color);
+  background-color: transparent;
+  color: var(--text-color);
+
+  &:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(var(--text-color-rgb), 0.1);
+  }
+}

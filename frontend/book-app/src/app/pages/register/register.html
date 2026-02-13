@@ -1,0 +1,52 @@
+<div class="auth-wrapper">
+
+  <div class="auth-card">
+
+    <h2 class="mb-4 text-center">Skapa konto</h2>
+
+    <form (ngSubmit)="register()">
+
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Användarnamn"
+          [(ngModel)]="username"
+          name="username"
+          required
+        />
+      </div>
+
+      <div class="mb-4">
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Lösenord"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 mb-3">
+        Registrera
+      </button>
+
+      <p class="text-center mb-0 small">
+        Har du redan ett konto?
+        <a routerLink="/login">Logga in</a>
+      </p>
+
+    </form>
+
+    <p class="success-text mt-3 text-center" *ngIf="message">
+      {{ message }}
+    </p>
+
+    <p class="error-text mt-3 text-center" *ngIf="error">
+      {{ error }}
+    </p>
+
+  </div>
+
+</div>
