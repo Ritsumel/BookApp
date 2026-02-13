@@ -3,6 +3,14 @@
 @import "bootstrap/scss/bootstrap";
 
 // General
+
+// Råkade designa i 67% utzoomning så tillfällig fix
+body {
+  transform: scale(0.75);
+  transform-origin: top left;
+  width: 133.33%;
+}
+
 html:root {
   --bg-color: #f5f1ea;
   --text-color: #2e2a25;
@@ -45,6 +53,7 @@ html.light-mode .navbar-toggler {
 html.dark-mode .navbar-toggler {
   border-color: var(--border-color);
 }
+
 
 .navbar-toggler:focus,
 .navbar-toggler:active,
@@ -242,10 +251,10 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   padding: 2rem;
   align-items: flex-start;
-  padding-top: 15rem;
+  padding-top: 11rem;
 
   @media (max-width: 992px) {
-    padding-top: 8rem;
+    padding-top: 6rem;
   }
 
   @media (max-width: 768px) {
