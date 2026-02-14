@@ -39,3 +39,4 @@ C:\PROJECTS\BookApp\backend\BookApi\bin\Debug\net9.0\Microsoft.IdentityModel.Pro
 C:\PROJECTS\BookApp\backend\BookApi\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\PROJECTS\BookApp\backend\BookApi\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
 C:\PROJECTS\BookApp\backend\BookApi\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\PROJECTS\BookApp\backend\BookApi\obj\Debug\net9.0\BookApi.sourcelink.json
