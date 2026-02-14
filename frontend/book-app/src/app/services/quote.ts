@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class Quote {
 
-  private apiUrl = 'https://localhost:7173/api/quotes';
+  private apiUrl = 'https://bookapp-qs07.onrender.com/api/quotes';
 
   constructor(private http: HttpClient) {}
 

@@ -7,7 +7,7 @@ import { tap } from 'rxjs/operators';
 })
 export class Auth {
 
-  private apiUrl = 'https://localhost:7173/api/auth';
+  private apiUrl = 'https://bookapp-qs07.onrender.com/api/auth';
 
   constructor(private http: HttpClient) {}
 
