@@ -42,7 +42,10 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAngular",
         policy =>
         {
-            policy.WithOrigins("http://localhost:4200")
+            policy.WithOrigins(
+                "http://localhost:4200",
+                "https://earnest-vacherin-96975e.netlify.app"
+                )
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
@@ -55,7 +58,10 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
 app.UseCors("AllowAngular");
 
